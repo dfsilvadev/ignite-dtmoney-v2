@@ -1,12 +1,14 @@
 import { ThemeProvider } from "styled-components";
 
+import { Transactions } from "./screens";
+
 import { DefaultTheme, GlobalStyles } from "./styles";
 
 function App() {
   return (
     <ThemeProvider theme={DefaultTheme}>
       <GlobalStyles />
-      <h1>Boilerplate</h1>
+      <Transactions />
     </ThemeProvider>
   );
 }

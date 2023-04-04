@@ -18,9 +18,8 @@ ${({ theme }) => css`
   }
   html,
   body {
-    background: ${theme.colors.background};
-    color: ${theme.colors.text};
-    transition: background 0.15s ease-in-out;
+    background: ${theme.colors["gray-800"]};
+    color: ${theme.colors["gray-100"]};
   }
   body {
     overflow-x: hidden;
@@ -43,7 +42,7 @@ ${({ theme }) => css`
   select,
   button {
     font: 400 1rem ${theme.font.family}, sans-serif;
-    color: ${theme.colors.text};
+    color: ${theme.colors["gray-100"]};
     transition: color 0.15s ease-in-out;
   }
   span {
@@ -63,6 +62,10 @@ ${({ theme }) => css`
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px ${theme.colors["gray-500"]};
   }
 `}
 `;

@@ -1,1 +1,2 @@
-module.exports = "test-file-stub";
+export default "SvgrURL";
+export const ReactComponent = "div";

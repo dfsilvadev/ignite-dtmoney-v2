@@ -1,0 +1,18 @@
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+
+import { {{pascalCase name}} } from "../../components";
+
+export default {
+  title: "Components/{{pascalCase name}}",
+  component: {{pascalCase name}},
+  tags: ["autodocs"],
+  argTypes: {},
+  parameters: {
+    layout: "centered"
+  }
+} as ComponentMeta<typeof {{pascalCase name}}>;
+
+const Template: ComponentStory<typeof {{pascalCase name}}> = (args) => <{{pascalCase name}} {...args} />;
+
+export const Default = Template.bind({});
+Primary.args = {};

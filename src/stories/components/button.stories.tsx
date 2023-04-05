@@ -63,7 +63,14 @@ export default {
   },
   parameters: {
     layout: "centered"
-  }
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 850, margin: "auto" }}>
+        <Story />
+      </div>
+    )
+  ]
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;

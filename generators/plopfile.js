@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = (plop) => {
   plop.setGenerator("component", {
     description: "Create a component",
@@ -18,6 +19,11 @@ module.exports = (plop) => {
         type: "add",
         path: "../src/components/{{pascalCase name}}/styles.ts",
         templateFile: "template/styles.ts.hbs"
+      },
+      {
+        type: "add",
+        path: "../src/stories/components/{{camelCase name}}.stories.tsx",
+        templateFile: "template/stories.tsx.hbs"
       },
       {
         type: "add",

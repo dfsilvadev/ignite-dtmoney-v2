@@ -16,7 +16,7 @@ const Header = () => {
           aria-label="Logotipo DT Money"
         />
 
-        <Button type="button" icon={<Plus weight="bold" />}>
+        <Button type="button" size="small" icon={<Plus weight="bold" />}>
           Nova Transação
         </Button>
       </S.HeaderContent>

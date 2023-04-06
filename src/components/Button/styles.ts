@@ -39,6 +39,7 @@ const wrapperModifiers = {
 
     &:hover {
       color: ${theme.colors["green-700"]};
+      background: none;
     }
   `,
   disabled: () => css`
@@ -60,14 +61,14 @@ export const Wrapper = styled.button<WrapperProps>`
     border-radius: ${theme.border.radius};
     padding: 1rem;
 
+    &:hover {
+      background: ${theme.colors["green-700"]};
+    }
+
     ${!!size && wrapperModifiers[size]()}
     ${!!fullWidth && wrapperModifiers.fullWidth()}
     ${!!minimal && wrapperModifiers.minimal(theme)}
     ${!!hasIcon && wrapperModifiers.withIcon()}
     ${!!disabled && wrapperModifiers.disabled}
-
-    &:hover {
-      background: ${theme.colors["green-700"]};
-    }
   `}
 `;

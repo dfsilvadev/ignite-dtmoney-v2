@@ -48,16 +48,16 @@ exports[`Header should render the heading 1`] = `
   font-size: 1rem;
 }
 
+.c2:hover {
+  background: #015F43;
+}
+
 .c2 svg {
   width: 1.5rem;
 }
 
 .c2 svg + span {
   margin-left: 0.5rem;
-}
-
-.c2:hover {
-  background: #015F43;
 }
 
 <div>

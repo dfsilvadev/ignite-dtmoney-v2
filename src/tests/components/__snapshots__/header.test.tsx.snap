@@ -43,9 +43,8 @@ exports[`Header should render the heading 1`] = `
   border: 0;
   border-radius: 0.25rem;
   padding: 1rem;
-  height: 3.125rem;
-  padding: 1rem;
-  font-size: 1rem;
+  height: 2.5rem;
+  font-size: 0.875rem;
 }
 
 .c2:hover {

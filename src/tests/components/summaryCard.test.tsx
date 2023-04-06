@@ -5,7 +5,7 @@ import SummaryCard from "../../components/SummaryCard";
 import { ArrowCircleUp } from "phosphor-react";
 
 describe("SummaryCard", () => {
-  it("deve renderizar um title quando passado", () => {
+  it("should render a title when passed", () => {
     renderWithTheme(<SummaryCard title="Entradas" />);
 
     expect(
@@ -13,7 +13,7 @@ describe("SummaryCard", () => {
     ).toBeInTheDocument();
   });
 
-  it("deve renderizar um icon quando passado", () => {
+  it("should render an icon when passed", () => {
     renderWithTheme(
       <SummaryCard
         title="Entradas"
@@ -31,7 +31,7 @@ describe("SummaryCard", () => {
     });
   });
 
-  it("deve renderizar um valor quando passado", () => {
+  it("should render a value when passed", () => {
     renderWithTheme(
       <SummaryCard
         title="Entradas"
@@ -50,7 +50,7 @@ describe("SummaryCard", () => {
     expect(screen.getByText("R$ 1.259,00")).toBeInTheDocument();
   });
 
-  it("deve renderizar R$ 0,00 se não passar nenhum valor", () => {
+  it("should render R$0.00 if you don't pass any value", () => {
     renderWithTheme(
       <SummaryCard
         title="Entradas"
@@ -68,7 +68,7 @@ describe("SummaryCard", () => {
     expect(screen.getByText("R$ 0,00")).toBeInTheDocument();
   });
 
-  it("deve renderizar corretamente", () => {
+  it("should render correctly", () => {
     const { container } = renderWithTheme(
       <SummaryCard
         title="Entradas"

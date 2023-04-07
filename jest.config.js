@@ -20,13 +20,13 @@ module.exports = {
     "!src/components/index.ts",
     "!src/stories/*.ts(x)",
     "!src/@types/*d.ts",
-    "!src/pages/**/*.ts(x)",
-    "!src/routes/index.ts",
+    "!src/screens/index.ts",
     "!src/styles/index.ts",
     "!src/styles/global-styles.ts",
     "!src/styles/**/*.ts(x)",
-    "!src/template/index.ts",
-    "!src/utils/*.ts(x)"
+    "!src/templates/index.ts",
+    "!src/utils/*.ts",
+    "!src/mocks/*.ts"
   ],
   transform: {
     "^.+\\.tsx?$": "ts-jest",

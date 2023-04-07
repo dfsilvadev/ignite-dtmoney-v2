@@ -6,11 +6,7 @@ exports[`Header should render the heading 1`] = `
   padding: 2.5rem 0 7.5rem;
 }
 
-.c1 {
-  width: 100%;
-  max-width: 70rem;
-  margin: 0 auto;
-  padding: 0 1rem;
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -25,7 +21,7 @@ exports[`Header should render the heading 1`] = `
   align-items: center;
 }
 
-.c2 {
+.c3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -47,75 +43,86 @@ exports[`Header should render the heading 1`] = `
   font-size: 0.875rem;
 }
 
-.c2:hover {
+.c3:hover {
   background: #015F43;
 }
 
-.c2 svg {
+.c3 svg {
   width: 1.5rem;
 }
 
-.c2 svg + span {
+.c3 svg + span {
   margin-left: 0.5rem;
+}
+
+.c1 {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 <div>
   <header
     class="c0"
   >
-    <div
+    <header
       class="c1"
     >
-      <img
-        alt="Logotipo DT Money"
-        aria-label="Logotipo DT Money"
-        src="SvgrURL"
-        title="Logotipo DT Money"
-      />
-      <button
+      <div
         class="c2"
-        type="button"
       >
-        <svg
-          fill="currentColor"
-          height="1em"
-          viewBox="0 0 256 256"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
+        <img
+          alt="Logotipo DT Money"
+          aria-label="Logotipo DT Money"
+          src="SvgrURL"
+          title="Logotipo DT Money"
+        />
+        <button
+          class="c3"
+          type="button"
         >
-          <rect
-            fill="none"
-            height="256"
-            width="256"
-          />
-          <line
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="24"
-            x1="40"
-            x2="216"
-            y1="128"
-            y2="128"
-          />
-          <line
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="24"
-            x1="128"
-            x2="128"
-            y1="40"
-            y2="216"
-          />
-        </svg>
-        <span>
-          Nova Transação
-        </span>
-      </button>
-    </div>
+          <svg
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 256 256"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              fill="none"
+              height="256"
+              width="256"
+            />
+            <line
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="24"
+              x1="40"
+              x2="216"
+              y1="128"
+              y2="128"
+            />
+            <line
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="24"
+              x1="128"
+              x2="128"
+              y1="40"
+              y2="216"
+            />
+          </svg>
+          <span>
+            Nova Transação
+          </span>
+        </button>
+      </div>
+    </header>
   </header>
 </div>
 `;

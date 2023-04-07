@@ -1,11 +1,13 @@
-import { Header, Summary } from "../../components";
+import { Summary, TransactionsTable } from "../../components";
+
+import { BaseTemplate } from "../../templates";
 
 const Transactions = () => {
   return (
-    <div>
-      <Header />
+    <BaseTemplate>
       <Summary />
-    </div>
+      <TransactionsTable />
+    </BaseTemplate>
   );
 };
 

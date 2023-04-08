@@ -1,8 +1,11 @@
+import SearchForm from "../SearchForm";
+
 import * as S from "./styles";
 
 const TransactionsTable = () => {
   return (
     <S.TableContainer>
+      <SearchForm />
       <S.Table>
         <tbody>
           <tr>

@@ -63,10 +63,6 @@ ${({ theme }) => css`
     opacity: 0.6;
     cursor: not-allowed;
   }
-  :focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px ${theme.colors["gray-500"]};
-  }
 `}
 `;
 

@@ -51,6 +51,31 @@ describe("<Button />", () => {
     expect(screen.getByTestId("icon")).toBeInTheDocument();
   });
 
+  it("should render a ghost button", () => {
+    renderWithTheme(
+      <Button
+        icon={<ShoppingCart size={20} weight="bold" data-testid="icon" />}
+        ghost
+      >
+        Buy now
+      </Button>
+    );
+
+    expect(screen.getByRole("button", { name: /buy now/i })).toHaveStyle({
+      background: "none",
+      color: "#00875F",
+      border: "2px solid #00875F"
+    });
+
+    expect(screen.getByRole("button", { name: /buy now/i })).toHaveStyleRule(
+      "background",
+      "#015F43",
+      {
+        modifier: ":hover"
+      }
+    );
+  });
+
   it("should render a minimal", () => {
     renderWithTheme(
       <Button

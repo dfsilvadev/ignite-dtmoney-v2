@@ -9,6 +9,7 @@ const Button: ForwardRefRenderFunction<S.WrapperProps, ButtonProps> = (
     children,
     size = "medium",
     fullWidth = false,
+    ghost = false,
     minimal = false,
     icon,
     ...props
@@ -21,6 +22,7 @@ const Button: ForwardRefRenderFunction<S.WrapperProps, ButtonProps> = (
       fullWidth={fullWidth}
       hasIcon={!!icon}
       minimal={minimal}
+      ghost={ghost}
       ref={ref}
       {...props}
     >

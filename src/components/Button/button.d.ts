@@ -13,6 +13,7 @@ export type ButtonProps = {
   size?: "small" | "medium" | "large";
   fullWidth?: boolean;
   minimal?: boolean;
+  ghost?: boolean;
   icon?: ReactNode;
   as?: ElementType;
 } & ButtonTypes;

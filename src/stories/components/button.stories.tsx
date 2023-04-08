@@ -53,13 +53,18 @@ export default {
       name: "Button minimal",
       description:
         "Opcional, remove os estilos de button renderizando apenas o texto."
+    },
+    ghost: {
+      name: "Button ghost",
+      description: "Opcional, remove o background do botão e destaca a borda."
     }
   },
   args: {
     children: "Buy now",
     size: "medium",
     fullWidth: false,
-    minimal: false
+    minimal: false,
+    ghost: false
   },
   parameters: {
     layout: "centered"
@@ -95,6 +100,12 @@ FullWidth.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   icon: <ShoppingCart />
+};
+
+export const Ghost = Template.bind({});
+Ghost.args = {
+  icon: <ShoppingCart />,
+  ghost: true
 };
 
 export const Minimal = Template.bind({});

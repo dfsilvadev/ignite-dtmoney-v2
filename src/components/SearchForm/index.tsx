@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { MagnifyingGlass } from "phosphor-react";
 
 import Button from "../Button";
+import Input from "../Input";
 
 import * as S from "./styles";
 
@@ -24,7 +25,7 @@ const SearchForm = ({ onSubmit, ...props }: SearchFormProps) => {
 
   return (
     <S.SearchFormContainer {...props} onSubmit={handleSubmit}>
-      <input
+      <Input
         type="search"
         placeholder="Busque uma transação"
         value={value}

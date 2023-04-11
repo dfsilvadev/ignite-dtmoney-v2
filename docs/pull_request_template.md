@@ -1,6 +1,8 @@
 ### 🔨 O que esse PR faz?
 
-Escreva aqui o que o PR faz
+<!--
+Remova esse comentário e descreva aqui qual o objetivo desse PR.
+-->
 
 ### 🔗 Referências
 

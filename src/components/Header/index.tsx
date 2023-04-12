@@ -1,8 +1,10 @@
-import * as S from "./styles";
 import { Plus } from "phosphor-react";
+import * as Dialog from "@radix-ui/react-dialog";
 
 import Button from "../Button";
 import Container from "../Container";
+
+import * as S from "./styles";
 
 import logoSvg from "../../assets/images/svg/logo.svg";
 
@@ -18,9 +20,21 @@ const Header = () => {
             aria-label="Logotipo DT Money"
           />
 
-          <Button type="button" size="small" icon={<Plus weight="bold" />}>
-            Nova Transação
-          </Button>
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <Button type="button" size="small" icon={<Plus weight="bold" />}>
+                Nova Transação
+              </Button>
+            </Dialog.Trigger>
+
+            <Dialog.Portal>
+              <Dialog.Overlay />
+
+              <Dialog.Content>
+                <Dialog.Title>Nova Transação</Dialog.Title>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
         </S.HeaderContent>
       </Container>
     </S.HeaderContainer>

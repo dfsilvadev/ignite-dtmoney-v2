@@ -1,26 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should render the heading 1`] = `
-.c0 {
-  background: #121214;
-  padding: 2.5rem 0 7.5rem;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 .c3 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -62,6 +42,26 @@ exports[`Header should render the heading 1`] = `
   padding: 0 1rem;
 }
 
+.c0 {
+  background: #121214;
+  padding: 2.5rem 0 7.5rem;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 <div>
   <header
     class="c0"
@@ -79,7 +79,11 @@ exports[`Header should render the heading 1`] = `
           title="Logotipo DT Money"
         />
         <button
+          aria-controls="radix-:r0:"
+          aria-expanded="false"
+          aria-haspopup="dialog"
           class="c3"
+          data-state="closed"
           type="button"
         >
           <svg

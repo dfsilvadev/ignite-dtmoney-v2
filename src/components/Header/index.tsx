@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 
 import Button from "../Button";
 import Container from "../Container";
+import NewTransactionModal from "../NewTransactionModal";
 
 import * as S from "./styles";
 
@@ -27,13 +28,7 @@ const Header = () => {
               </Button>
             </Dialog.Trigger>
 
-            <Dialog.Portal>
-              <Dialog.Overlay />
-
-              <Dialog.Content>
-                <Dialog.Title>Nova Transação</Dialog.Title>
-              </Dialog.Content>
-            </Dialog.Portal>
+            <NewTransactionModal />
           </Dialog.Root>
         </S.HeaderContent>
       </Container>

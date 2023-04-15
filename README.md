@@ -46,8 +46,6 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 - [Jest](https://jestjs.io/pt-BR/)
 - [Testing Library](https://testing-library.com/)
 - [Storybook](https://storybook.js.org/)
-- [Eslint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
 - [VS Code](https://code.visualstudio.com/) com [ESLint](https://eslint.org/),
   [Prettier](https://prettier.io/) e [EditorConfig](https://editorconfig.org/)
 

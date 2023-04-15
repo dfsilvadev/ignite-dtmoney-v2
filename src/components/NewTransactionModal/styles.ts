@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import * as Dialog from "@radix-ui/react-dialog";
+import * as RadioGroup from "@radix-ui/react-radio-group";
 
 export const Overlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -41,5 +42,11 @@ export const Form = styled.form`
 
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+`;
+
+export const TransactionType = styled(RadioGroup.Root)`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 `;

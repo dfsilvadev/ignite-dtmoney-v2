@@ -82,6 +82,7 @@ exports[`Header should render the heading 1`] = `
           aria-controls="radix-:r0:"
           aria-expanded="false"
           aria-haspopup="dialog"
+          aria-label="new transaction"
           class="c3"
           data-state="closed"
           type="button"

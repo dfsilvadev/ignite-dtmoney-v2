@@ -7,3 +7,4 @@ export { default as SearchForm } from "./SearchForm";
 export { default as Summary } from "./Summary";
 export { default as SummaryCard } from "./SummaryCard";
 export { default as TransactionsTable } from "./TransactionsTable";
+export { default as TransactionTypeButton } from "./TransactionTypeButton";

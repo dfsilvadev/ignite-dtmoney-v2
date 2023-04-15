@@ -3,6 +3,12 @@ import { renderWithTheme } from "../../utils/tests/renderWithTheme";
 
 import Header from "../../components/Header";
 
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn()
+}));
+
 describe("Header", () => {
   it("should render the heading", () => {
     const { container } = renderWithTheme(<Header />);
@@ -28,7 +34,7 @@ describe("Header", () => {
   it("the aria-expanded property must be true and the data-state open when clicking on the button to open the modal", () => {
     renderWithTheme(<Header />);
 
-    const button = screen.getByRole("button");
+    const button = screen.getByRole("button", { name: /new transaction/i });
 
     fireEvent.click(button);
 
@@ -39,7 +45,7 @@ describe("Header", () => {
   it("should open the modal on button click", () => {
     renderWithTheme(<Header />);
 
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole("button", { name: /new transaction/i }));
 
     const overlay = screen.getByLabelText("overlay");
     const modal = screen.getByRole("dialog");
@@ -55,7 +61,7 @@ describe("Header", () => {
   it("should close the modal on clicking the close button", () => {
     renderWithTheme(<Header />);
 
-    fireEvent.click(screen.getByRole("button"));
+    fireEvent.click(screen.getByRole("button", { name: /new transaction/i }));
 
     const overlay = screen.getByLabelText("overlay");
     const modal = screen.getByRole("dialog");

@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Summary } from "../../components";
+import { Summary } from "@/components";
 
 export default {
   title: "Components/Summary",

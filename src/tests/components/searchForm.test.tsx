@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
+import { renderWithTheme } from "@/utils/tests";
 
-import { SearchForm } from "../../components";
+import { SearchForm } from "@/components";
 
 describe("SearchForm", () => {
   it("should render a input", () => {

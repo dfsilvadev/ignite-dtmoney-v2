@@ -2,7 +2,7 @@ import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from "phosphor-react";
 
 import * as S from "./styles";
 
-import SummaryCard from "../SummaryCard";
+import SummaryCard from "@/components/SummaryCard";
 
 const Summary = () => {
   return (

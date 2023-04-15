@@ -1,11 +1,11 @@
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 import * as Dialog from "@radix-ui/react-dialog";
 
-import Button from "../Button";
-import Input from "../Input";
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import TransactionTypeButton from "@/components/TransactionTypeButton";
 
 import * as S from "./styles";
-import TransactionTypeButton from "../TransactionTypeButton";
 
 const NewTransactionModal = () => {
   return (

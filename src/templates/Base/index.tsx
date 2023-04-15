@@ -1,4 +1,4 @@
-import { Container, Header } from "../../components";
+import { Container, Header } from "@/components";
 
 import { BaseTemplateProps } from "./base";
 

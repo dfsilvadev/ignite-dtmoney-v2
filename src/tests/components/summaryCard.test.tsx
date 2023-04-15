@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
-
-import SummaryCard from "../../components/SummaryCard";
 import { ArrowCircleUp } from "phosphor-react";
+import { renderWithTheme } from "@/utils/tests";
+
+import SummaryCard from "@/components/SummaryCard";
 
 describe("SummaryCard", () => {
   it("should render a title when passed", () => {

@@ -1,6 +1,6 @@
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
+import { renderWithTheme } from "@/utils/tests";
 
-import { Container } from "../../components";
+import { Container } from "@/components";
 
 describe("Container", () => {
   it("should render the Container correctly", () => {

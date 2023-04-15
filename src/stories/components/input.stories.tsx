@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Input } from "../../components";
+import { Input } from "@/components";
 
 export default {
   title: "Components/Input",

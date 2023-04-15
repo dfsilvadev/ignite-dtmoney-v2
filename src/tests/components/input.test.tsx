@@ -1,8 +1,8 @@
-import { fireEvent, screen } from "@testing-library/react";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
-
-import Input from "../../components/Input";
 import { ChangeEvent } from "react";
+import { fireEvent, screen } from "@testing-library/react";
+import { renderWithTheme } from "@/utils/tests";
+
+import Input from "@/components/Input";
 
 const props = {
   type: "search",

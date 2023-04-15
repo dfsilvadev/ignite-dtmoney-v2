@@ -23,7 +23,12 @@ const Header = () => {
 
           <Dialog.Root>
             <Dialog.Trigger asChild>
-              <Button type="button" size="small" icon={<Plus weight="bold" />}>
+              <Button
+                type="button"
+                size="small"
+                icon={<Plus weight="bold" />}
+                aria-label="new transaction"
+              >
                 Nova Transação
               </Button>
             </Dialog.Trigger>

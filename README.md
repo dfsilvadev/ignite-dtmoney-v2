@@ -17,7 +17,7 @@
 ## Sobre
 
 <p align="center">
-  <img src="[public/image/Capa.png](https://github.com/dfsilva-dxp/ignite-dtmoney-v2/blob/main/public/image/capa.png)" alt="Home page">
+  <img src="https://raw.githubusercontent.com/dfsilva-dxp/ignite-dtmoney-v2/main/public/image/capa.png" alt="Home page">
 </p>
 
 DT Money uma aplicação front-end web completa, conectada a uma API com JSON

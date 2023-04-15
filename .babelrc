@@ -12,5 +12,24 @@
     ],
     "@babel/preset-typescript"
   ],
-  "plugins": ["babel-plugin-styled-components"]
+  "plugins": [
+    "babel-plugin-styled-components",
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@": "./src",
+          "@assets": "./src/assets",
+          "@components": "./src/components",
+          "@mocks": "./src/mocks",
+          "@screens": "./src/screens",
+          "@stories": "./src/stories",
+          "@styles": "./src/styles",
+          "@templates": "./src/templates",
+          "@tests": "./src/tests",
+          "@utils": "./src/utils"
+        }
+      }
+    ]
+  ]
 }

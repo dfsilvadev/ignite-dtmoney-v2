@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { TransactionsTable } from "../../components";
+import { TransactionsTable } from "@/components";
 
 export default {
   title: "Components/TransactionsTable",
@@ -12,7 +12,9 @@ export default {
   }
 } as ComponentMeta<typeof TransactionsTable>;
 
-const Template: ComponentStory<typeof TransactionsTable> = (args) => <TransactionsTable {...args} />;
+const Template: ComponentStory<typeof TransactionsTable> = () => (
+  <TransactionsTable />
+);
 
 export const Default = Template.bind({});
 Default.args = {};

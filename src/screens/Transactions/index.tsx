@@ -1,6 +1,6 @@
-import { Summary, TransactionsTable } from "../../components";
+import { Summary, TransactionsTable } from "@/components";
 
-import { BaseTemplate } from "../../templates";
+import { BaseTemplate } from "@/templates";
 
 const Transactions = () => {
   return (

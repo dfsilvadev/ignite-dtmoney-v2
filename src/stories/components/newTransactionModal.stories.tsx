@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import * as Dialog from "@radix-ui/react-dialog";
 
-import { Button, NewTransactionModal } from "../../components";
+import { Button, NewTransactionModal } from "@/components";
 
 export default {
   title: "Components/NewTransactionModal",

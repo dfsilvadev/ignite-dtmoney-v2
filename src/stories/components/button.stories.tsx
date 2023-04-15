@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import { Button } from "../../components";
 import { ShoppingCart } from "phosphor-react";
+
+import { Button } from "@/components";
 
 export default {
   title: "Components/Button",

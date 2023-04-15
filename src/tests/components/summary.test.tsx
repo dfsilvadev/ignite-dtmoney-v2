@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
+import { renderWithTheme } from "@/utils/tests";
 
-import { Summary } from "../../components";
+import { Summary } from "@/components";
 
 describe("Summary", () => {
   it("renders the three Summary component", () => {

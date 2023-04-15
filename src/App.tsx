@@ -1,8 +1,8 @@
 import { ThemeProvider } from "styled-components";
 
-import { Transactions } from "./screens";
+import { Transactions } from "@/screens";
 
-import { DefaultTheme, GlobalStyles } from "./styles";
+import { DefaultTheme, GlobalStyles } from "@/styles";
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
+import { renderWithTheme } from "@/utils/tests";
 
-import Header from "../../components/Header";
+import Header from "@/components/Header";
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),

@@ -1,8 +1,8 @@
 import { fireEvent, screen } from "@testing-library/react";
 import * as RadioGroup from "@radix-ui/react-radio-group";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
+import { renderWithTheme } from "@/utils/tests";
 
-import TransactionTypeButton from "../../components/TransactionTypeButton";
+import TransactionTypeButton from "@/components/TransactionTypeButton";
 
 describe("TransactionTypeButton", () => {
   beforeEach(() => {

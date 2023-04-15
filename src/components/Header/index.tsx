@@ -1,13 +1,13 @@
 import { Plus } from "phosphor-react";
 import * as Dialog from "@radix-ui/react-dialog";
 
-import Button from "../Button";
-import Container from "../Container";
-import NewTransactionModal from "../NewTransactionModal";
+import Button from "@/components/Button";
+import Container from "@/components/Container";
+import NewTransactionModal from "@/components/NewTransactionModal";
 
 import * as S from "./styles";
 
-import logoSvg from "../../assets/images/svg/logo.svg";
+import logoSvg from "@/assets/images/svg/logo.svg";
 
 const Header = () => {
   return (

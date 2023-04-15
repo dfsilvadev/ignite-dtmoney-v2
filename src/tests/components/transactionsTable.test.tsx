@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
+import { renderWithTheme } from "@/utils/tests";
 
-import { TransactionsTable } from "../../components";
+import { TransactionsTable } from "@/components";
 
 describe("TransactionsTable", () => {
   it("renders transactions table with correct data", () => {

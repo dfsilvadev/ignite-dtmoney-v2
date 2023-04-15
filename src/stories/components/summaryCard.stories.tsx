@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-
-import { SummaryCard } from "../../components";
 import { ArrowCircleUp } from "phosphor-react";
+
+import { SummaryCard } from "@/components";
 
 export default {
   title: "Components/SummaryCard",

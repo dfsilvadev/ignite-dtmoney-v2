@@ -1,8 +1,8 @@
 import { fireEvent, screen } from "@testing-library/react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { renderWithTheme } from "../../utils/tests/renderWithTheme";
+import { renderWithTheme } from "@/utils/tests";
 
-import { Button, NewTransactionModal } from "../../components";
+import { Button, NewTransactionModal } from "@/components";
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
   observe: jest.fn(),

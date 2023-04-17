@@ -1,6 +1,6 @@
 import styled, { DefaultTheme, css } from "styled-components";
 
-import { CardStyleProps } from "./summaryCard";
+import { CardStyleProps } from "./types";
 
 const cardVariant = {
   default: (theme: DefaultTheme) => css`

@@ -8,3 +8,5 @@ export type TransactionTypeButtonProps = {
   icon?: ReactNode;
   as?: ElementType;
 } & ButtonTypes;
+
+export type StyleButtonProps = Pick<TransactionTypeButtonProps, "variant">;

@@ -1,6 +1,6 @@
 import styled, { DefaultTheme, css } from "styled-components";
 
-import { PriceHighlightProps } from "./transactionsTable";
+import { PriceHighlightProps } from "./types";
 
 export const TableContainer = styled.main`
   margin-top: 4rem;

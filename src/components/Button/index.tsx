@@ -2,9 +2,9 @@ import { forwardRef, ForwardRefRenderFunction } from "react";
 
 import * as S from "./styles";
 
-import { ButtonProps } from "./button";
+import { ButtonProps, WrapperStyleProps } from "./types";
 
-const Button: ForwardRefRenderFunction<S.WrapperProps, ButtonProps> = (
+const Button: ForwardRefRenderFunction<WrapperStyleProps, ButtonProps> = (
   {
     children,
     size = "medium",

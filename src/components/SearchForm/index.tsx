@@ -6,7 +6,7 @@ import Input from "@/components/Input";
 
 import * as S from "./styles";
 
-import { SearchFormProps } from "./searchForm";
+import { SearchFormProps } from "./types";
 
 const SearchForm = ({ onSubmit, ...props }: SearchFormProps) => {
   const [value, setValue] = useState("");

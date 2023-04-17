@@ -1,6 +1,6 @@
 import * as S from "./styles";
 
-import { InputProps } from "./input";
+import { InputProps } from "./types";
 
 const Input = ({ ...props }: InputProps) => {
   return (

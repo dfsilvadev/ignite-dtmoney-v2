@@ -17,3 +17,7 @@ export type ButtonProps = {
   icon?: ReactNode;
   as?: ElementType;
 } & ButtonTypes;
+
+export type WrapperStyleProps = {
+  hasIcon: boolean;
+} & Pick<ButtonProps, "size" | "fullWidth" | "minimal" | "ghost">;

@@ -1,9 +1,7 @@
 import styled, { css, DefaultTheme } from "styled-components";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 
-import { TransactionTypeButtonProps } from "./transactionTypeButton";
-
-export type StyleButtonProps = Pick<TransactionTypeButtonProps, "variant">;
+import { StyleButtonProps } from "./types";
 
 const buttonVariant = {
   income: (theme: DefaultTheme) => css`

@@ -1,6 +1,6 @@
 import * as S from "./styles";
 
-import { SummaryCardProps } from "./summaryCard";
+import { SummaryCardProps } from "./types";
 
 const SummaryCard = ({
   title,

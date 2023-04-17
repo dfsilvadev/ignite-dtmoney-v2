@@ -2,10 +2,10 @@ import { forwardRef, ForwardRefRenderFunction } from "react";
 
 import * as S from "./styles";
 
-import { TransactionTypeButtonProps } from "./transactionTypeButton";
+import { StyleButtonProps, TransactionTypeButtonProps } from "./types";
 
 const TransactionTypeButton: ForwardRefRenderFunction<
-  S.StyleButtonProps,
+  StyleButtonProps,
   TransactionTypeButtonProps
 > = ({ children, variant, icon, ...props }, ref) => {
   return (

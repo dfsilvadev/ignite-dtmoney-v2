@@ -1,10 +1,6 @@
 import styled, { css, DefaultTheme } from "styled-components";
 
-import { ButtonProps } from "./button";
-
-export type WrapperProps = {
-  hasIcon: boolean;
-} & Pick<ButtonProps, "size" | "fullWidth" | "minimal" | "ghost">;
+import { WrapperStyleProps } from "./types";
 
 const wrapperModifiers = {
   small: () => css`
@@ -61,7 +57,7 @@ const wrapperModifiers = {
   `
 };
 
-export const Wrapper = styled.button<WrapperProps>`
+export const Wrapper = styled.button<WrapperStyleProps>`
   ${({ theme, size, fullWidth, minimal, ghost, hasIcon, disabled }) => css`
     display: inline-flex;
     align-items: center;

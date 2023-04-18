@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Input } from "@/components";
 
 export default {
-  title: "Components/Input",
+  title: "Form/Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {},

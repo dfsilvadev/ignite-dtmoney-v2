@@ -4,7 +4,7 @@ import { ShoppingCart } from "phosphor-react";
 import { Button } from "@/components";
 
 export default {
-  title: "Components/Button",
+  title: "Form/Button",
   component: Button,
   tags: ["autodocs"],
   argTypes: {

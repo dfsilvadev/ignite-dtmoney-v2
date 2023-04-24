@@ -12,6 +12,7 @@ export default defineConfig({
       "@components": path.resolve(__dirname, "./src/components"),
       "@mocks": path.resolve(__dirname, "./src/mocks"),
       "@screens": path.resolve(__dirname, "./src/screens"),
+      "@services": path.resolve(__dirname, "./src/services"),
       "@stories": path.resolve(__dirname, "./src/stories"),
       "@styles": path.resolve(__dirname, "./src/styles"),
       "@templates": path.resolve(__dirname, "./src/templates"),

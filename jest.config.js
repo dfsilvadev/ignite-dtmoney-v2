@@ -14,6 +14,7 @@ module.exports = {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@mocks/(.*)$": "<rootDir>/src/mocks/$1",
     "^@screens/(.*)$": "<rootDir>/src/screens/$1",
+    "^@services/(.*)$": "<rootDir>/src/services/$1",
     "^@stories/(.*)$": "<rootDir>/src/stories/$1",
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
     "^@templates/(.*)$": "<rootDir>/src/templates/$1",

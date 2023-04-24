@@ -21,6 +21,7 @@
       "@components/*": ["./src/components/*"],
       "@mocks/*": ["./src/mocks/*"],
       "@screens/*": ["./src/screens/*"],
+      "@services/*": ["./src/services/*"],
       "@stories/*": ["./src/stories/*"],
       "@styles/*": ["./src/styles/*"],
       "@templates/*": ["./src/templates/*"],

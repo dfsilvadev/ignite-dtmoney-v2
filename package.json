@@ -15,7 +15,7 @@
     "generate:component": "yarn plop --plopfile generators/plopfile.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "server": "json-server server.json -p 8080 -w"
+    "server": "json-server server.json -p 8080 -w -d 500"
   },
   "husky": {
     "hooks": {

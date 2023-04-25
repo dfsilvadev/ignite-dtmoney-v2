@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 module.exports = {
+  preset: "ts-jest",
   testEnvironment: "jest-environment-jsdom",
   moduleDirectories: ["node_modules", "src"],
   testPathIgnorePatterns: ["/node_modules/"],
@@ -12,8 +13,11 @@ module.exports = {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^@assets/(.*)$": "<rootDir>/src/assets/$1",
     "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "^@contexts/(.*)$": "<rootDir>/src/contexts/$1",
+    "^@hooks/(.*)$": "<rootDir>/src/hooks/$1",
     "^@mocks/(.*)$": "<rootDir>/src/mocks/$1",
     "^@screens/(.*)$": "<rootDir>/src/screens/$1",
+    "^@services/(.*)$": "<rootDir>/src/services/$1",
     "^@stories/(.*)$": "<rootDir>/src/stories/$1",
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
     "^@templates/(.*)$": "<rootDir>/src/templates/$1",
@@ -39,7 +43,26 @@ module.exports = {
     "!src/mocks/*.ts"
   ],
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        diagnostics: {
+          ignoreCodes: [1343]
+        },
+        astTransformers: {
+          before: [
+            {
+              path: "node_modules/ts-jest-mock-import-meta",
+              options: {
+                metaObjectReplacement: {
+                  env: { VITE_SERVER_BASE_URL: "https://www.url.com" }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
   }
 };

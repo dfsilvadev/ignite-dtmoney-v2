@@ -3,18 +3,65 @@ import { renderWithTheme } from "@/utils/tests";
 
 import { TransactionsTable } from "@/components";
 
+import useTransactions from "@/hooks/useTransactions";
+
+jest.mock("@/hooks/useTransactions");
+
+const mockUseTransactions = useTransactions as jest.MockedFunction<
+  typeof useTransactions
+>;
+
 describe("TransactionsTable", () => {
   it("renders transactions table with correct data", () => {
-    renderWithTheme(<TransactionsTable />);
+    mockUseTransactions.mockReturnValue({
+      transactions: [
+        {
+          id: 1,
+          description: "Desenvolvimento de site",
+          type: "income",
+          category: "Venda",
+          price: 14000,
+          createdAt: "2023-04-20T20:14:16.489Z"
+        }
+      ],
+      loading: false
+    });
+
+    const transactions = mockUseTransactions().transactions;
+
+    renderWithTheme(
+      <TransactionsTable transactions={transactions} isLoading={false} />
+    );
 
     expect(screen.getByText("Desenvolvimento de site")).toBeInTheDocument();
-    expect(screen.getByText("R$ 12.000,00")).toBeInTheDocument();
+    expect(screen.getByText("14000")).toBeInTheDocument();
     expect(screen.getByText("Venda")).toBeInTheDocument();
-    expect(screen.getByText("07/03/2023")).toBeInTheDocument();
+    expect(screen.getByText("2023-04-20T20:14:16.489Z")).toBeInTheDocument();
+  });
 
-    expect(screen.getByText("Hamburguer")).toBeInTheDocument();
-    expect(screen.getByText("- R$ 59,00")).toBeInTheDocument();
-    expect(screen.getByText("Alimentação")).toBeInTheDocument();
-    expect(screen.getByText("10/04/2022")).toBeInTheDocument();
+  it("render spinner when isLoading is false", () => {
+    mockUseTransactions.mockReturnValue({
+      transactions: [
+        {
+          id: 1,
+          description: "Desenvolvimento de site",
+          type: "income",
+          category: "Venda",
+          price: 14000,
+          createdAt: "2023-04-20T20:14:16.489Z"
+        }
+      ],
+      loading: false
+    });
+
+    const transactions = mockUseTransactions().transactions;
+
+    renderWithTheme(
+      <TransactionsTable transactions={transactions} isLoading={true} />
+    );
+
+    const spinner = screen.getByLabelText("loader");
+
+    expect(spinner).toBeVisible();
   });
 });

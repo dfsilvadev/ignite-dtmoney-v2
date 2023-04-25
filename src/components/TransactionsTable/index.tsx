@@ -1,32 +1,38 @@
 import SearchForm from "../SearchForm";
+import Spinner from "../Spinner";
 
 import * as S from "./styles";
 
-const TransactionsTable = () => {
+import { TransactionsTableProps } from "./types";
+
+const TransactionsTable = ({
+  transactions,
+  isLoading
+}: TransactionsTableProps) => {
   return (
     <S.TableContainer>
       <SearchForm />
-      <S.Table>
-        <tbody>
-          <tr>
-            <td>Desenvolvimento de site</td>
-            <td>
-              <S.PriceHighlight variant="income">R$ 12.000,00</S.PriceHighlight>
-            </td>
-            <td>Venda</td>
-            <td>07/03/2023</td>
-          </tr>
 
-          <tr>
-            <td>Hamburguer</td>
-            <td>
-              <S.PriceHighlight variant="outcome">- R$ 59,00</S.PriceHighlight>
-            </td>
-            <td>Alimentação</td>
-            <td>10/04/2022</td>
-          </tr>
-        </tbody>
-      </S.Table>
+      {!isLoading ? (
+        <S.Table>
+          <tbody>
+            {transactions.map((transaction) => (
+              <tr key={transaction.id}>
+                <td>{transaction.description}</td>
+                <td>
+                  <S.PriceHighlight variant={transaction.type}>
+                    {transaction.price}
+                  </S.PriceHighlight>
+                </td>
+                <td>{transaction.category}</td>
+                <td>{transaction.createdAt}</td>
+              </tr>
+            ))}
+          </tbody>
+        </S.Table>
+      ) : (
+        <Spinner />
+      )}
     </S.TableContainer>
   );
 };

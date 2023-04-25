@@ -5,9 +5,9 @@ import Spinner from "@/components/Spinner";
 
 describe("Spinner", () => {
   it("should render currectly", () => {
-    const { container } = renderWithTheme(<Spinner />);
+    const { container } = renderWithTheme(<Spinner isHidden={true} />);
 
-    expect(screen.getByRole("loader", { name: /loader/i })).toBeInTheDocument();
+    expect(screen.getByLabelText("loader")).toBeInTheDocument();
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {
@@ -26,6 +26,7 @@ describe("Spinner", () => {
 
       <div>
         <span
+          aria-hidden="true"
           aria-label="loader"
           class="c0"
           role="loader"

@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 module.exports = {
+  preset: "ts-jest",
   testEnvironment: "jest-environment-jsdom",
   moduleDirectories: ["node_modules", "src"],
   testPathIgnorePatterns: ["/node_modules/"],
@@ -42,7 +43,26 @@ module.exports = {
     "!src/mocks/*.ts"
   ],
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        diagnostics: {
+          ignoreCodes: [1343]
+        },
+        astTransformers: {
+          before: [
+            {
+              path: "node_modules/ts-jest-mock-import-meta",
+              options: {
+                metaObjectReplacement: {
+                  env: { VITE_SERVER_BASE_URL: "https://www.url.com" }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
   }
 };

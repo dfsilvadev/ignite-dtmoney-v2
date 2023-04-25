@@ -31,7 +31,7 @@ const TransactionsTable = ({
           </tbody>
         </S.Table>
       ) : (
-        <Spinner />
+        <Spinner isHidden={isLoading} />
       )}
     </S.TableContainer>
   );

@@ -1,35 +1,29 @@
-import styled from "styled-components";
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
+
+export const Wrapper = styled.span`
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+`;
 
 export const Loader = styled.span`
   ${({ theme }) => css`
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid ${theme.colors["gray-700"]};
+    border-bottom-color: transparent;
     border-radius: 50%;
-    display: block;
-    margin: 15px auto;
-    position: relative;
-    background: ${theme.colors["gray-700"]};
-    box-shadow: -24px 0 ${theme.colors["gray-700"]},
-      24px 0 ${theme.colors["gray-700"]};
+    display: inline-block;
     box-sizing: border-box;
-    animation: shadowPulse 1.5s linear infinite;
+    animation: rotation 1s linear infinite;
 
-    @keyframes shadowPulse {
-      33% {
-        background: ${theme.colors["gray-700"]};
-        box-shadow: -24px 0 ${theme.colors["green-300"]},
-          24px 0 ${theme.colors["gray-700"]};
-      }
-      66% {
-        background: ${theme.colors["green-300"]};
-        box-shadow: -24px 0 ${theme.colors["gray-700"]},
-          24px 0 ${theme.colors["gray-700"]};
+    @keyframes rotation {
+      0% {
+        transform: rotate(0deg);
       }
       100% {
-        background: ${theme.colors["gray-700"]};
-        box-shadow: -24px 0 ${theme.colors["gray-700"]},
-          24px 0 ${theme.colors["green-300"]};
+        transform: rotate(360deg);
       }
     }
   `}

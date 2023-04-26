@@ -35,9 +35,8 @@ exports[`SummaryCard should render correctly 1`] = `
 
 <div>
   <div
-    aria-label="Summary Card"
     class="c0"
-    role="card"
+    role="sumarycard"
   >
     <header
       class="c1"

@@ -1,9 +1,11 @@
 import * as S from "./styles";
 
-import { SpinnerProps } from "./type";
-
-const Spinner = ({ isHidden }: SpinnerProps) => {
-  return <S.Loader role="loader" aria-label="loader" aria-hidden={isHidden} />;
+const Spinner = ({ ...props }) => {
+  return (
+    <S.Wrapper>
+      <S.Loader role="loader" aria-label="loader" {...props} />
+    </S.Wrapper>
+  );
 };
 
 export default Spinner;

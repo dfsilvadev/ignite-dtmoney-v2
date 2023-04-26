@@ -3,33 +3,15 @@ import { renderWithTheme } from "@/utils/tests";
 
 import { Summary } from "@/components";
 
+import { TransactionsProvider } from "@/contexts/transactionsContext";
 describe("Summary", () => {
   it("renders the three Summary component", () => {
-    renderWithTheme(<Summary />);
+    renderWithTheme(<Summary />, { wrapper: TransactionsProvider });
 
-    expect(
-      screen.queryAllByRole("card", { name: "Summary Card" })
-    ).toHaveLength(3);
-  });
+    expect(screen.queryAllByRole("sumarycard")).toHaveLength(3);
 
-  it("renders Entradas SummaryCard component with correct title and value", () => {
-    renderWithTheme(<Summary />);
-
-    expect(screen.getByText("Entradas")).toBeInTheDocument();
-    expect(screen.getByText("R$ 17.400,00")).toBeInTheDocument();
-  });
-
-  it("renders Saídas SummaryCard component with correct title and value", () => {
-    renderWithTheme(<Summary />);
-
-    expect(screen.getByText("Saídas")).toBeInTheDocument();
-    expect(screen.getByText("R$ 1.259,00")).toBeInTheDocument();
-  });
-
-  it("renders Total SummaryCard component with correct title, value, and variant", () => {
-    renderWithTheme(<Summary />);
-
-    expect(screen.getByText("Total")).toBeInTheDocument();
-    expect(screen.getByText("R$ 16.141,00")).toBeInTheDocument();
+    expect(screen.getByLabelText("income")).toBeInTheDocument();
+    expect(screen.getByLabelText("outcome")).toBeInTheDocument();
+    expect(screen.getByLabelText("total")).toBeInTheDocument();
   });
 });

@@ -5,6 +5,7 @@ export type SummaryCardProps = {
   icon?: ReactNode;
   value?: string;
   variant?: "default" | "success" | "danger";
+  isLoading?: boolean;
 };
 
 export type CardStyleProps = Pick<SummaryCardProps, "variant">;

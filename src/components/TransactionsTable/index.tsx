@@ -22,6 +22,7 @@ const TransactionsTable = ({
                 <td>{transaction.description}</td>
                 <td>
                   <S.PriceHighlight variant={transaction.type}>
+                    {transaction.type === "outcome" && " - "}
                     {formatter({ type: "currency", value: transaction.price })}
                   </S.PriceHighlight>
                 </td>

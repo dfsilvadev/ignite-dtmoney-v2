@@ -1,3 +1,4 @@
+import formatter from "@/utils/common/formatter";
 import SearchForm from "../SearchForm";
 import Spinner from "../Spinner";
 
@@ -21,11 +22,15 @@ const TransactionsTable = ({
                 <td>{transaction.description}</td>
                 <td>
                   <S.PriceHighlight variant={transaction.type}>
-                    {transaction.price}
+                    {formatter({ type: "currency", value: transaction.price })}
                   </S.PriceHighlight>
                 </td>
                 <td>{transaction.category}</td>
-                <td>{transaction.createdAt}</td>
+                <td>
+                  <small>
+                    {formatter({ type: "date", value: transaction.createdAt })}
+                  </small>
+                </td>
               </tr>
             ))}
           </tbody>

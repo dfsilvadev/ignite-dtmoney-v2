@@ -36,7 +36,7 @@ describe("TransactionsTable", () => {
     expect(screen.getByText("Desenvolvimento de site")).toBeInTheDocument();
     expect(screen.getByText("R$ 14.000,00")).toBeInTheDocument();
     expect(screen.getByText("Venda")).toBeInTheDocument();
-    expect(screen.getByText("20/04/2023 17:14:16")).toBeInTheDocument();
+    expect(screen.getByText("20/04/2023 20:14:16")).toBeInTheDocument();
   });
 
   it("render spinner when isLoading is false", () => {

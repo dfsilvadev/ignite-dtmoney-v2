@@ -11,26 +11,34 @@ describe("Spinner", () => {
 
     expect(container).toMatchInlineSnapshot(`
       .c0 {
-        width: 16px;
-        height: 16px;
+        width: 100%;
+        padding: 1rem;
+        display: grid;
+        place-items: center;
+      }
+
+      .c1 {
+        width: 20px;
+        height: 20px;
+        border: 3px solid #29292E;
+        border-bottom-color: transparent;
         border-radius: 50%;
-        display: block;
-        margin: 15px auto;
-        position: relative;
-        background: #29292E;
-        box-shadow: -24px 0 #29292E, 24px 0 #29292E;
+        display: inline-block;
         box-sizing: border-box;
-        -webkit-animation: shadowPulse 1.5s linear infinite;
-        animation: shadowPulse 1.5s linear infinite;
+        -webkit-animation: rotation 1s linear infinite;
+        animation: rotation 1s linear infinite;
       }
 
       <div>
         <span
-          aria-hidden="true"
-          aria-label="loader"
           class="c0"
-          role="loader"
-        />
+        >
+          <span
+            aria-label="loader"
+            class="c1"
+            role="loader"
+          />
+        </span>
       </div>
     `);
   });

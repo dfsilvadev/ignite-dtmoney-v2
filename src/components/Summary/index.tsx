@@ -9,7 +9,7 @@ import formatter from "@/utils/common/formatter";
 import * as S from "./styles";
 
 const Summary = () => {
-  const { transactions } = useTransactions();
+  const { loading, transactions } = useTransactions();
 
   const summary =
     transactions &&
@@ -39,12 +39,14 @@ const Summary = () => {
         value={formatter({ type: "currency", value: summary.income })}
         icon={<ArrowCircleUp weight="bold" color="#00B37E" />}
         aria-label="income"
+        isLoading={loading}
       />
       <SummaryCard
         title="Saídas"
         value={formatter({ type: "currency", value: summary.outcome })}
         icon={<ArrowCircleDown weight="bold" color="#F75A68" />}
         aria-label="outcome"
+        isLoading={loading}
       />
       <SummaryCard
         title="Total"
@@ -52,6 +54,7 @@ const Summary = () => {
         variant="success"
         icon={<CurrencyDollar weight="bold" color="#fff" />}
         aria-label="total"
+        isLoading={loading}
       />
     </S.SummaryContainer>
   );

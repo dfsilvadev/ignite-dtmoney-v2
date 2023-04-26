@@ -6,10 +6,11 @@ const SummaryCard = ({
   title,
   icon,
   value = "R$ 0,00",
-  variant = "default"
+  variant = "default",
+  ...props
 }: SummaryCardProps) => {
   return (
-    <S.Card variant={variant} role="card" aria-label="Summary Card">
+    <S.Card variant={variant} role="sumarycard" {...props}>
       <S.Header>
         <h4>{title}</h4>
 

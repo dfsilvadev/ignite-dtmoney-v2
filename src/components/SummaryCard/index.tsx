@@ -1,3 +1,4 @@
+import Spinner from "../Spinner";
 import * as S from "./styles";
 
 import { SummaryCardProps } from "./types";
@@ -7,6 +8,7 @@ const SummaryCard = ({
   icon,
   value = "R$ 0,00",
   variant = "default",
+  isLoading,
   ...props
 }: SummaryCardProps) => {
   return (
@@ -17,7 +19,11 @@ const SummaryCard = ({
         {!!icon && icon}
       </S.Header>
 
-      <S.Text>{value}</S.Text>
+      {isLoading ? (
+        <Spinner aria-hidden={isLoading} />
+      ) : (
+        <S.Text>{value}</S.Text>
+      )}
     </S.Card>
   );
 };

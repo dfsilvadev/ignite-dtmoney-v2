@@ -5,20 +5,30 @@ import { SearchForm } from "@/components";
 
 describe("SearchForm", () => {
   it("should render a input", () => {
-    renderWithTheme(<SearchForm />);
+    const handleSearchTransactions = jest.fn();
+    renderWithTheme(
+      <SearchForm handleSearchTransactions={handleSearchTransactions} />
+    );
 
     expect(screen.getByLabelText("search")).toBeInTheDocument();
   });
 
   it("should render a button", () => {
-    renderWithTheme(<SearchForm />);
+    const handleSearchTransactions = jest.fn();
+    renderWithTheme(
+      <SearchForm handleSearchTransactions={handleSearchTransactions} />
+    );
 
     expect(screen.getByRole("button", { name: "Buscar" })).toBeInTheDocument();
   });
 
   it("should test disabling button while searching", async () => {
-    const { getByRole } = renderWithTheme(<SearchForm />);
-    const searchButton = getByRole("button", { name: "Buscar" });
+    const handleSearchTransactions = jest.fn();
+    renderWithTheme(
+      <SearchForm handleSearchTransactions={handleSearchTransactions} />
+    );
+
+    const searchButton = screen.getByRole("button", { name: "Buscar" });
 
     fireEvent.click(searchButton);
 

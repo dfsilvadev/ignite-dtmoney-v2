@@ -1,23 +1,43 @@
+import { useEffect, useState } from "react";
+
+import SearchForm, { SearchFormInputs } from "@components/SearchForm";
+import Spinner from "@components/Spinner";
+
 import formatter from "@/utils/common/formatter";
-import SearchForm from "../SearchForm";
-import Spinner from "../Spinner";
 
 import * as S from "./styles";
 
 import { TransactionsTableProps } from "./types";
+import { Transaction } from "@/screens/Transactions/types";
 
 const TransactionsTable = ({
   transactions,
   isLoading
 }: TransactionsTableProps) => {
+  const [transactionList, setTransactionList] = useState<Transaction[]>([]);
+
+  useEffect(() => {
+    setTransactionList(transactions);
+  }, [transactions]);
+
+  async function handleSearchTransactions(data: SearchFormInputs) {
+    const filteredTransaction = transactions.filter((tx) => {
+      const lowerCaseDescription = tx.description.toLowerCase();
+
+      return lowerCaseDescription.includes(data.query.toLocaleLowerCase());
+    });
+
+    setTransactionList(filteredTransaction);
+  }
+
   return (
     <S.TableContainer>
-      <SearchForm />
+      <SearchForm handleSearchTransactions={handleSearchTransactions} />
 
       {!isLoading ? (
         <S.Table>
           <tbody>
-            {transactions.map((transaction) => (
+            {transactionList.map((transaction) => (
               <tr key={transaction.id}>
                 <td>{transaction.description}</td>
                 <td>

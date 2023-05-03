@@ -5,17 +5,22 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import Spinner from "@components/Spinner";
 
 import * as S from "./styles";
-import Spinner from "../Spinner";
+
+import { SearchFormProps } from "./types";
 
 const searchFormSchema = z.object({
   query: z.string()
 });
 
-type SearchFormInputs = z.infer<typeof searchFormSchema>;
+export type SearchFormInputs = z.infer<typeof searchFormSchema>;
 
-const SearchForm = ({ ...props }) => {
+const SearchForm = ({
+  handleSearchTransactions,
+  ...props
+}: SearchFormProps) => {
   const {
     register,
     handleSubmit,
@@ -23,11 +28,6 @@ const SearchForm = ({ ...props }) => {
   } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema)
   });
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async function handleSearchTransactions(data: SearchFormInputs) {
-    await new Promise((resolve) => setTimeout(resolve, 2800));
-  }
 
   return (
     <S.SearchFormContainer

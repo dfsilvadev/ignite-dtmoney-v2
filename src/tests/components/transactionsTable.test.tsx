@@ -3,35 +3,14 @@ import { renderWithTheme } from "@/utils/tests";
 
 import { TransactionsTable } from "@/components";
 
-import useTransactions from "@/hooks/useTransactions";
-
-jest.mock("@/hooks/useTransactions");
-
-const mockUseTransactions = useTransactions as jest.MockedFunction<
-  typeof useTransactions
->;
-
+import { transactions } from "@/mocks/transactions";
 describe("TransactionsTable", () => {
   it("renders transactions table with correct data", () => {
-    mockUseTransactions.mockReturnValue({
-      transactions: [
-        {
-          id: 1,
-          description: "Desenvolvimento de site",
-          type: "income",
-          category: "Venda",
-          price: 14000,
-          createdAt: "2023-04-20T20:14:16.489Z"
-        }
-      ],
-      loading: false
-    });
-
-    const transactions = mockUseTransactions().transactions;
-
     renderWithTheme(
-      <TransactionsTable transactions={transactions} isLoading={false} />
+      <TransactionsTable transactions={[transactions[0]]} isLoading={false} />
     );
+
+    expect(screen.getAllByRole("row").length).toBe(1);
 
     expect(screen.getByText("Desenvolvimento de site")).toBeInTheDocument();
     expect(screen.getByText("R$ 14.000,00")).toBeInTheDocument();
@@ -40,24 +19,8 @@ describe("TransactionsTable", () => {
   });
 
   it("render spinner when isLoading is false", () => {
-    mockUseTransactions.mockReturnValue({
-      transactions: [
-        {
-          id: 1,
-          description: "Desenvolvimento de site",
-          type: "income",
-          category: "Venda",
-          price: 14000,
-          createdAt: "2023-04-20T20:14:16.489Z"
-        }
-      ],
-      loading: false
-    });
-
-    const transactions = mockUseTransactions().transactions;
-
     renderWithTheme(
-      <TransactionsTable transactions={transactions} isLoading={true} />
+      <TransactionsTable transactions={[transactions[0]]} isLoading={true} />
     );
 
     const spinner = screen.getByLabelText("loader");

@@ -32,5 +32,13 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Check SonarCloud Quality Gate
+      run: |
+        status=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: "https://sonarcloud.io/api/qualitygates/project_status?projectKey=<seu_projeto_key>" | jq -r '.projectStatus.status')
+        if [ "$status" != "OK" ]; then
+          echo "SonarCloud Quality Gate failed"
+          exit 1
+        fi

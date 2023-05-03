@@ -1,4 +1,4 @@
-name: 🐧 versioning control
+name: 🐧 Versioning control
 run-name: ${{ github.actor }} is running the tests and lint on GitHub Actions 🐧
 
 on:
@@ -7,6 +7,7 @@ on:
 
 jobs:
   lint:
+    name: Lint and Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

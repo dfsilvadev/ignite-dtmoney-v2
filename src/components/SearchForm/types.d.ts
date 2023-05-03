@@ -1,5 +1,7 @@
 import { FormHTMLAttributes } from "react";
 
+import { SearchFormInputs } from ".";
+
 export type SearchFormProps = {
-  onSubmit?: () => void;
+  handleSearchTransactions: (data: SearchFormInputs) => void;
 } & FormHTMLAttributes<HTMLFormElement>;

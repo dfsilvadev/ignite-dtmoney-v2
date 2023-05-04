@@ -15,6 +15,30 @@
       "category": "Alimentação",
       "price": 50,
       "createdAt": "2023-04-20T20:03:16.489Z"
+    },
+    {
+      "description": "Troca de pneu do carro",
+      "price": 546.17,
+      "type": "outcome",
+      "category": "Carro",
+      "createdAt": "2023-05-04T14:34:55.484Z",
+      "id": 3
+    },
+    {
+      "description": "Salário primeira quinzena",
+      "price": 3840,
+      "type": "income",
+      "category": "Salário",
+      "createdAt": "2023-05-04T16:42:50.857Z",
+      "id": 4
+    },
+    {
+      "description": "Almoço",
+      "price": 36.99,
+      "type": "outcome",
+      "category": "Alimentação",
+      "createdAt": "2023-05-04T17:02:31.925Z",
+      "id": 5
     }
   ]
 }

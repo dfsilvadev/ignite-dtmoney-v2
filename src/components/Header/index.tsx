@@ -1,6 +1,8 @@
 import { Plus } from "phosphor-react";
 import * as Dialog from "@radix-ui/react-dialog";
 
+import { useState } from "react";
+
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import NewTransactionModal from "@/components/NewTransactionModal";
@@ -10,6 +12,12 @@ import * as S from "./styles";
 import logoSvg from "@/assets/images/svg/logo.svg";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
+  function handleCloseModal() {
+    setOpen(false);
+  }
+
   return (
     <S.HeaderContainer>
       <Container>
@@ -21,7 +29,7 @@ const Header = () => {
             aria-label="Logotipo DT Money"
           />
 
-          <Dialog.Root>
+          <Dialog.Root open={open} onOpenChange={setOpen}>
             <Dialog.Trigger asChild>
               <Button
                 type="button"
@@ -33,7 +41,7 @@ const Header = () => {
               </Button>
             </Dialog.Trigger>
 
-            <NewTransactionModal />
+            <NewTransactionModal onCloseChange={handleCloseModal} />
           </Dialog.Root>
         </S.HeaderContent>
       </Container>

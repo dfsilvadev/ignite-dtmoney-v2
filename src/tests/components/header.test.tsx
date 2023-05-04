@@ -10,14 +10,12 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
 }));
 
 describe("Header", () => {
-  it("should render the heading", () => {
+  it("should render the heading", async () => {
     const { container } = renderWithTheme(<Header />);
 
-    expect(
-      screen.getByRole("img", { name: /logotipo dt money/i })
-    ).toBeInTheDocument();
+    expect(screen.getByLabelText(/logotipo dt money/i)).toBeInTheDocument();
 
-    expect(screen.getByRole("button")).toBeInTheDocument();
+    expect(screen.getByLabelText(/new transaction/i)).toBeInTheDocument();
 
     expect(container).toMatchSnapshot();
   });
@@ -25,7 +23,7 @@ describe("Header", () => {
   it("should render the button to open the modal with property aria-expanded false", () => {
     renderWithTheme(<Header />);
 
-    expect(screen.getByRole("button")).toHaveAttribute(
+    expect(screen.getByLabelText(/new transaction/i)).toHaveAttribute(
       "aria-expanded",
       "false"
     );
@@ -34,7 +32,7 @@ describe("Header", () => {
   it("the aria-expanded property must be true and the data-state open when clicking on the button to open the modal", () => {
     renderWithTheme(<Header />);
 
-    const button = screen.getByRole("button", { name: /new transaction/i });
+    const button = screen.getByLabelText(/new transaction/i);
 
     fireEvent.click(button);
 
@@ -45,7 +43,7 @@ describe("Header", () => {
   it("should open the modal on button click", () => {
     renderWithTheme(<Header />);
 
-    fireEvent.click(screen.getByRole("button", { name: /new transaction/i }));
+    fireEvent.click(screen.getByLabelText(/new transaction/i));
 
     const overlay = screen.getByLabelText("overlay");
     const modal = screen.getByRole("dialog");
@@ -61,7 +59,7 @@ describe("Header", () => {
   it("should close the modal on clicking the close button", () => {
     renderWithTheme(<Header />);
 
-    fireEvent.click(screen.getByRole("button", { name: /new transaction/i }));
+    fireEvent.click(screen.getByLabelText(/new transaction/i));
 
     const overlay = screen.getByLabelText("overlay");
     const modal = screen.getByRole("dialog");

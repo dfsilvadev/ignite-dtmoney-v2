@@ -9,7 +9,11 @@ import Input from "@/components/Input";
 import Spinner from "@/components/Spinner";
 import TransactionTypeButton from "@/components/TransactionTypeButton";
 
+import useTransactions from "@/hooks/useTransactions";
+
 import * as S from "./styles";
+
+import { NewTransactionModalProps } from "./type";
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -20,19 +24,35 @@ const newTransactionFormSchema = z.object({
 
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
-const NewTransactionModal = () => {
+const NewTransactionModal = ({ onCloseChange }: NewTransactionModalProps) => {
+  const { createTransaction } = useTransactions();
+
   const {
     control,
     register,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
+    reset
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema)
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async function handleSubmitNewTransaction(data: NewTransactionFormInputs) {
-    await new Promise((resolve) => setTimeout(resolve, 2800));
+    try {
+      const { description, price, type, category } = data;
+
+      await createTransaction({
+        description,
+        price,
+        category,
+        type
+      });
+    } catch {
+      throw new Error("Erro ao cadastrar nova transação");
+    } finally {
+      reset();
+      onCloseChange();
+    }
   }
 
   return (
@@ -55,7 +75,8 @@ const NewTransactionModal = () => {
           />
           <Input
             type="number"
-            min="1"
+            step="0.01"
+            min="0.10"
             placeholder="Preço"
             required
             {...register("price", { valueAsNumber: true })}

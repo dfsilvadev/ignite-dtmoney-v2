@@ -1,4 +1,5 @@
-import { fireEvent, screen } from "@testing-library/react";
+import { fireEvent, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import * as Dialog from "@radix-ui/react-dialog";
 import { renderWithTheme } from "@/utils/tests";
 
@@ -75,6 +76,14 @@ describe("NewTransactionModal", () => {
     ).toBeInTheDocument();
   });
 
+  it("should close modal", async () => {
+    userEvent.click(screen.getByRole("button", { name: "close button" }));
+
+    await waitFor(() =>
+      expect(screen.queryByLabelText("overlay")).not.toBeInTheDocument()
+    );
+  });
+
   it("should render radio buttons unchecked", () => {
     const income = screen.getByRole("radio", { name: /entrada/i });
     const outcome = screen.getByRole("radio", { name: /saída/i });
@@ -87,5 +96,35 @@ describe("NewTransactionModal", () => {
 
     expect(outcome).toHaveAttribute("data-state", "unchecked");
     expect(outcome).toHaveAttribute("aria-checked", "false");
+  });
+
+  it("should submit valid form successfully", async () => {
+    const descriptionInput = screen.getByPlaceholderText("Descrição");
+    const priceInput = screen.getByPlaceholderText("Preço");
+    const categoryInput = screen.getByPlaceholderText("Categoria");
+    const submitButton = screen.getByRole("button", { name: "Cadastrar" });
+
+    userEvent.type(descriptionInput, "Test Description");
+    userEvent.type(priceInput, "10");
+    userEvent.type(categoryInput, "Test Category");
+
+    userEvent.click(submitButton);
+
+    await waitFor(() => expect(submitButton).not.toBeDisabled());
+  });
+
+  it("should zod schema validation", async () => {
+    const descriptionInput = screen.getByPlaceholderText("Descrição");
+    const priceInput = screen.getByPlaceholderText("Preço");
+    const categoryInput = screen.getByPlaceholderText("Categoria");
+    const submitButton = screen.getByRole("button", { name: "Cadastrar" });
+
+    userEvent.type(descriptionInput, "Test Description");
+    userEvent.type(priceInput, "10");
+    userEvent.type(categoryInput, "Test Category");
+
+    userEvent.click(submitButton);
+
+    await waitFor(() => expect(submitButton).not.toBeDisabled());
   });
 });

@@ -1,15 +1,23 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
+import { AxiosRequestConfig } from "axios";
 import qs from "qs";
 
 import axiosInstance from "@/services/common/axios-instance";
 
 import { Transaction } from "@/screens/Transactions/types";
-import { AxiosRequestConfig } from "axios";
+
+type CreateTransactionInput = {
+  description: string;
+  price: number;
+  category: string;
+  type: "income" | "outcome";
+};
 
 type TransactionsContextType = {
   transactions: Transaction[];
   loading: boolean;
   fetchTransactions: (query?: string) => Promise<void>;
+  createTransaction: (data: CreateTransactionInput) => Promise<void>;
 };
 
 type TransactionsProviderProps = {
@@ -33,8 +41,6 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       if (query) {
         options = {
           params: {
-            _sort: "createdAt",
-            _order: "desc",
             q: query
           },
           paramsSerializer: function (params) {
@@ -59,9 +65,27 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     fetchTransactions();
   }, []);
 
+  async function createTransaction(data: CreateTransactionInput) {
+    try {
+      const { description, price, type, category } = data;
+
+      const response = await axiosInstance.post<Transaction>("transactions", {
+        description,
+        price,
+        type,
+        category,
+        createdAt: new Date()
+      });
+
+      setTransactions((currentState) => [response.data, ...currentState]);
+    } catch {
+      throw new Error("Erro ao cadastrar nova transação");
+    }
+  }
+
   return (
     <TransactionsContext.Provider
-      value={{ fetchTransactions, loading, transactions }}
+      value={{ createTransaction, fetchTransactions, loading, transactions }}
     >
       {children}
     </TransactionsContext.Provider>

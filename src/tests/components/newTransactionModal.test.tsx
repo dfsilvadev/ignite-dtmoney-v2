@@ -13,6 +13,8 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
 
 describe("NewTransactionModal", () => {
   beforeEach(() => {
+    const onCloseChange = jest.fn();
+
     renderWithTheme(
       <Dialog.Root>
         <Dialog.Trigger asChild>
@@ -21,7 +23,7 @@ describe("NewTransactionModal", () => {
           </Button>
         </Dialog.Trigger>
 
-        <NewTransactionModal />
+        <NewTransactionModal onCloseChange={onCloseChange} />
       </Dialog.Root>
     );
 

@@ -10,6 +10,7 @@ import Spinner from "@components/Spinner";
 import * as S from "./styles";
 
 import { SearchFormProps } from "./types";
+import { memo } from "react";
 
 const searchFormSchema = z.object({
   query: z.string()
@@ -17,7 +18,7 @@ const searchFormSchema = z.object({
 
 export type SearchFormInputs = z.infer<typeof searchFormSchema>;
 
-const SearchForm = ({
+const SearchFormComponent = ({
   handleSearchTransactions,
   ...props
 }: SearchFormProps) => {
@@ -57,5 +58,7 @@ const SearchForm = ({
     </S.SearchFormContainer>
   );
 };
+
+const SearchForm = memo(SearchFormComponent);
 
 export default SearchForm;

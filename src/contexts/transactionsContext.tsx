@@ -1,4 +1,5 @@
-import { ReactNode, createContext, useEffect, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
+import { createContext } from "use-context-selector";
 import { AxiosRequestConfig } from "axios";
 import qs from "qs";
 
@@ -30,7 +31,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(false);
 
-  async function fetchTransactions(query?: string) {
+  const fetchTransactions = useCallback(async (query?: string) => {
     const url = "transactions";
 
     try {
@@ -59,29 +60,32 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [fetchTransactions]);
 
-  async function createTransaction(data: CreateTransactionInput) {
-    try {
-      const { description, price, type, category } = data;
+  const createTransaction = useCallback(
+    async (data: CreateTransactionInput) => {
+      try {
+        const { description, price, type, category } = data;
 
-      const response = await axiosInstance.post<Transaction>("transactions", {
-        description,
-        price,
-        type,
-        category,
-        createdAt: new Date()
-      });
+        const response = await axiosInstance.post<Transaction>("transactions", {
+          description,
+          price,
+          type,
+          category,
+          createdAt: new Date()
+        });
 
-      setTransactions((currentState) => [response.data, ...currentState]);
-    } catch {
-      throw new Error("Erro ao cadastrar nova transação");
-    }
-  }
+        setTransactions((currentState) => [response.data, ...currentState]);
+      } catch {
+        throw new Error("Erro ao cadastrar nova transação");
+      }
+    },
+    []
+  );
 
   return (
     <TransactionsContext.Provider

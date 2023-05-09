@@ -26,3 +26,7 @@ dist-ssr
 #Coverage dorectory
 coverage
 *.lcov
+
+# Cypress
+cypress/screenshots
+cypress/videos

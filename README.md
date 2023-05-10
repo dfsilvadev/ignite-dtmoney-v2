@@ -21,7 +21,8 @@
 </p>
 
 DT Money uma aplicação front-end web completa, conectada a uma API com JSON
-Server e conceitos de performance com o React.
+Server e conceitos de performance com o React. Além disso, a aplicação tem
+muitos testes de integração e de regressão visual.
 
 <br>
 
@@ -30,6 +31,7 @@ Server e conceitos de performance com o React.
 - [x] Design simples, limpo e responsivo.
 - [x] API Request com JSON Server
 - [x] TDD
+- [x] Testes de regressão visual
 - [x] Documentação UI com Storybook
 
 <br>
@@ -45,6 +47,8 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 - [JSON Server](https://github.com/typicode/json-server)
 - [Jest](https://jestjs.io/pt-BR/)
 - [Testing Library](https://testing-library.com/)
+- [Cypress](https://www.cypress.io/)
+- [Percy](https://percy.io/)
 - [Storybook](https://storybook.js.org/)
 - [VS Code](https://code.visualstudio.com/) com [ESLint](https://eslint.org/),
   [Prettier](https://prettier.io/) e [EditorConfig](https://editorconfig.org/)
@@ -56,17 +60,33 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 Instale as dependências e rode o development server:
 
 ```bash
-npm install
-
-npm rum dev
-```
-
-OU
-
-```bash
 yarn install
 
 yarn dev
+```
+
+Executando o JSON Server:
+
+```bash
+yarn server
+```
+
+Executando os testes Jest:
+
+```bash
+yarn test:watch
+```
+
+Executando os testes Cypress:
+
+```bash
+yarn test:cy
+```
+
+Executando o storybook:
+
+```bash
+yarn storybook
 ```
 
 Abra [http://127.0.0.1:5173](http://127.0.0.1:5173/) em seu navegador para ver o

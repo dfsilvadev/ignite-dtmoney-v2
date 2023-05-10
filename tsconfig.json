@@ -29,10 +29,9 @@
       "@templates/*": ["./src/templates/*"],
       "@tests/*": ["./src/tests/*"],
       "@utils/*": ["./src/utils/*"]
-    },
-    "types": ["cypress", "@percy/cypress"]
+    }
   },
   "include": ["src"],
-  "exclude": ["cypress"],
+  "exclude": ["cypress.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

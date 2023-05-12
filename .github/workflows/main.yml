@@ -6,12 +6,12 @@ on:
     branches: [main]
 
 jobs:
-  lint:
-    name: Lint and Test
+  ci:
+    name: CI - Build and Lint
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install dependencies
         run: yarn install
@@ -20,7 +20,7 @@ jobs:
         run: yarn lint
 
   sonarcloud:
-    name: SonarCloud
+    name: CI - Sonar Analysis
     runs-on: ubuntu-latest
 
     steps:

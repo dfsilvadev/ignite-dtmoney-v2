@@ -5,11 +5,11 @@ import * as S from "./styles";
 import { InputProps } from "./types";
 
 const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = (
-  { ...props },
+  { error = false, ...props },
   ref
 ) => {
   return (
-    <S.InputComponent>
+    <S.InputComponent error={error}>
       <input {...props} ref={ref} />
     </S.InputComponent>
   );

@@ -45,4 +45,21 @@ describe("Input", () => {
 
     expect(container.querySelector("input")?.value).toBe("Alimentação");
   });
+
+  it("should render with red border if error is true", () => {
+    renderWithTheme(
+      <Input
+        type="text"
+        placeholder="Descrição"
+        aria-label="description"
+        name="description"
+        error={true}
+      />
+    );
+
+    expect(screen.getByLabelText("description")).toHaveStyle({
+      outline: 0,
+      "box-shadow": "0 0 0 2px #AB222E"
+    });
+  });
 });

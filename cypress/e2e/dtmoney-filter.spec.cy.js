@@ -8,14 +8,15 @@ describe("Filter", () => {
         });
       }
     });
-
-    const time = 2000;
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(time);
   });
 
   it("Checks if the field has a green outline when in focus.", () => {
     cy.get("input").type("Search");
+    cy.get("input").should(
+      "have.css",
+      "box-shadow",
+      "rgb(0, 135, 95) 0px 0px 0px 2px"
+    );
     cy.percySnapshot();
   });
 

@@ -8,10 +8,6 @@ describe("Home", () => {
         });
       }
     });
-
-    const time = 2000;
-    // eslint-disable-next-line cypress/no-unnecessary-waiting
-    cy.wait(time);
   });
 
   it("Check for the initial state", () => {

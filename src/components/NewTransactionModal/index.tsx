@@ -16,9 +16,9 @@ import * as S from "./styles";
 import { NewTransactionModalProps } from "./type";
 
 const newTransactionFormSchema = z.object({
-  description: z.string().min(1, { message: "Insira uma descrição." }),
-  price: z.number().lte(5, { message: "Insira um valor." }),
-  category: z.string().min(1, { message: "Insira uma descrição." }),
+  description: z.string().min(1),
+  price: z.number(),
+  category: z.string().min(1),
   type: z.enum(["income", "outcome"])
 });
 

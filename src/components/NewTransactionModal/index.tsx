@@ -16,9 +16,9 @@ import * as S from "./styles";
 import { NewTransactionModalProps } from "./type";
 
 const newTransactionFormSchema = z.object({
-  description: z.string(),
+  description: z.string().min(1),
   price: z.number(),
-  category: z.string(),
+  category: z.string().min(1),
   type: z.enum(["income", "outcome"])
 });
 
@@ -31,7 +31,7 @@ const NewTransactionModal = ({ onCloseChange }: NewTransactionModalProps) => {
     control,
     register,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting, errors },
     reset
   } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema)
@@ -70,22 +70,22 @@ const NewTransactionModal = ({ onCloseChange }: NewTransactionModalProps) => {
           <Input
             type="text"
             placeholder="Descrição"
-            required
             {...register("description")}
+            error={!!errors.description?.message}
           />
           <Input
             type="number"
             step="0.01"
             min="0.10"
             placeholder="Preço"
-            required
             {...register("price", { valueAsNumber: true })}
+            error={!!errors.price?.message}
           />
           <Input
             type="text"
             placeholder="Categoria"
-            required
             {...register("category")}
+            error={!!errors.category?.message}
           />
 
           <Controller

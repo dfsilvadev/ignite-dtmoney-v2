@@ -39,6 +39,14 @@
       "category": "Alimentação",
       "createdAt": "2023-05-04T17:02:31.925Z",
       "id": 5
+    },
+    {
+      "description": "Pagamento da conta de internet",
+      "price": 109.99,
+      "type": "outcome",
+      "category": "Internet",
+      "createdAt": "2023-05-12T16:52:04.762Z",
+      "id": 6
     }
   ]
 }

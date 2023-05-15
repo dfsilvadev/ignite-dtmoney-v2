@@ -1,7 +1,22 @@
-import styled, { css } from "styled-components";
+import styled, { DefaultTheme, css } from "styled-components";
 
-export const InputComponent = styled.div`
-  ${({ theme }) => css`
+import { InputComponentProps } from "./types";
+
+const variant = {
+  withError: (theme: DefaultTheme) => css`
+    outline: 0;
+    box-shadow: 0 0 0 2px ${theme.colors["red-500"]};
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 2px ${theme.colors["red-500"]};
+    }
+  `
+};
+
+export const InputComponent = styled.div<InputComponentProps>`
+  ${({ theme, error }) => css`
     flex: 1;
 
     input {
@@ -21,6 +36,8 @@ export const InputComponent = styled.div`
         outline: 0;
         box-shadow: 0 0 0 2px ${theme.colors["green-500"]};
       }
+
+      ${error && variant.withError(theme)}
     }
   `}
 `;
